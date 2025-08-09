@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minimalist Black and White Website</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<style>
+    /* styles.css */
+
+body {
+font-family: 'Helvetica Neue', sans-serif;
+color: #fff;
+background-color: #000;
+margin: 0;
+padding: 0;
+}
+
+section {
+padding: 100px 0;
+text-align: center;
+}
+
+.hero-content {
+animation: fadeIn 1s forwards;
+}
+
+.about-content {
+animation: slideInLeft 1s forwards;
+}
+
+.contact-form {
+animation: slideInRight 1s forwards;
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(50px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes slideInLeft {
+from {
+opacity: 0;
+transform: translateX(-50px);
+}
+to {
+opacity: 1;
+transform: translateX(0);
+}
+}
+
+@keyframes slideInRight {
+from {
+opacity: 0;
+transform: translateX(50px);
+}
+to {
+opacity: 1;
+transform: translateX(0);
+}
+}
+</style>
+<body>
+
+<section id="hero">
+<div class="hero-content">
+<h1>Minimalist Black & White</h1>
+<p>A stylish one-page website</p>
+<a href="#" class="cta-btn">Learn More</a>
+</div>
+</section>
+
+<section id="about">
+<div class="about-content">
+<p>This is a minimalist black and white website with sleek design and smooth animations.</p>
+<img src="image.jpg" alt="Illustration" class="about-img">
+</div>
+</section>
+
+<section id="contact">
+<div class="contact-form">
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button>Send</button>
+</div>
+</section>
+
+<script src="scripts.js">
+    /* scripts.js */
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from('.hero-content', {
+scrollTrigger: {
+trigger: '#hero',
+start: 'top center',
+end: 'bottom center',
+toggleActions: 'play none none none'
+},
+opacity: 0,
+y: 50,
+duration: 1
+});
+
+gsap.from('.about-content', {
+scrollTrigger: {
+trigger: '#about',
+start: 'top center',
+end: 'bottom center',
+toggleActions: 'play none none none'
+},
+opacity: 0,
+x: -50,
+duration: 1
+});
+
+gsap.from('.contact-form', {
+scrollTrigger: {
+trigger: '#contact',
+start: 'top center',
+end: 'bottom center',
+toggleActions: 'play none none none'
+},
+opacity: 0,
+x: 50,
+duration: 1
+});
+</script>
+</body>
+</html> 
